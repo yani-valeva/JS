@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="myId"></div>
+    <script>
+        function Chessboard(number) {
+            let output = '<div class="chessboard">\n';
+            let color = 'black';
+            for (let i = 1; i <= number; i++) {
+                output += '  <div>\n';
+                color = (i % 2 === 0) ? 'white' : 'black';
+                for (let j = 1; j <= number; j++) {
+                    output += `    <span class="${color}"></span>\n`;
+                    color = (color === 'black') ? 'white' : 'black';
+                }
+                output += '  </div>\n';
+            }
+            output += '</div>';
+            document.getElementById('myId').innerHTML = output;
+            console.log(document.getElementById('myId'));
+        }
+
+        let css = document.createElement("style");
+
+        css.innerHTML = `
+
+body { background: #CCC; }
+
+.chessboard { display: inline-block; }
+
+.black, .white {
+
+width:50px; height:50px;
+
+display: inline-block; }
+
+.black { background: black; }
+
+.white { background: white; }
+
+`;
+
+        document.getElementsByTagName("head")[0].appendChild(css);
+
+        Chessboard(10);
+    </script>
+</body>
+</html>

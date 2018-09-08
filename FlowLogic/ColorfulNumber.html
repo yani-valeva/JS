@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="myId"></div>
+<script>
+    let output = '<ul>\n';
+    let currentColor = '';
+    for (let i = 1; i <= 10; i++) {
+        if (i % 2 === 0) {
+            currentColor = 'blue';
+        } else {
+            currentColor = 'green';
+        }
+        output += `  <li><span style=\'color:${currentColor}\'>${i}</span></li>\n`;
+    }
+
+    output += '</ul>';
+    document.getElementById('myId').innerHTML = output;
+</script>
+</body>
+</html>
